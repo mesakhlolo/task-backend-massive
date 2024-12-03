@@ -26,7 +26,19 @@ export const getNoteById = async (req, res) => {
 };
 
 // Create a new note
-export const createNote = async (req, res) => {};
+export const createNote = async (req, res) => {
+  const { title, note } = req.body;
+
+  try {
+    await db.query(
+      "INSERT INTO notes (title, datetime, note) VALUES (?, NOW(), ?)",
+      [title, note]
+    );
+    res.status(201).json({ message: "Note created successfully" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
 // Update a note
 export const updateNote = async (req, res) => {};
