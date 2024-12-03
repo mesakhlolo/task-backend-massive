@@ -41,7 +41,23 @@ export const createNote = async (req, res) => {
 };
 
 // Update a note
-export const updateNote = async (req, res) => {};
+export const updateNote = async (req, res) => {
+  const { id } = req.params;
+  const { title, datetime, note } = req.body;
+
+  try {
+    const [result] = await db.query(
+      "UPDATE notes SET title = ?, datetime = ?, note = ? WHERE id = ?",
+      [title, datetime, note, id]
+    );
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: "Note not found" });
+    }
+    res.status(200).json({ message: "Note updated successfully" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
 // Delete a note
 export const deleteNote = async (req, res) => {
