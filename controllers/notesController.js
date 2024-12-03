@@ -44,4 +44,16 @@ export const createNote = async (req, res) => {
 export const updateNote = async (req, res) => {};
 
 // Delete a note
-export const deleteNote = async (req, res) => {};
+export const deleteNote = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const [result] = await db.query("DELETE FROM notes WHERE id = ?", [id]);
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: "Note not found" });
+    }
+    res.status(200).json({ message: "Note deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
