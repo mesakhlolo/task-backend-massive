@@ -1,7 +1,14 @@
 import db from "../database.js";
 
 // Get all notes
-export const getAllNotes = async (req, res) => {};
+export const getAllNotes = async (req, res) => {
+  try {
+    const [rows] = await db.query("SELECT * FROM notes");
+    res.status(200).json(rows);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
 // Get a single note by ID
 export const getNoteById = async (req, res) => {};
