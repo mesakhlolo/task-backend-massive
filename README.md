@@ -19,7 +19,7 @@ Ikuti langkah-langkah berikut untuk menjalankan proyek ini di lokal Anda:
 1. **Clone Repository**
 
 ```bash
-git clone https://github.com/username/task-backend-massive.git
+git clone https://github.com/mesakhlolo/task-backend-massive.git
 cd task-backend-massive
 ```
 
