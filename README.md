@@ -23,13 +23,15 @@ git clone https://github.com/username/task-backend-massive.git
 cd task-backend-massive
 ```
 
-2. **Instal Dependensi** Jalankan perintah berikut untuk menginstal semua dependensi:
+2. **Instal Dependensi**
 
 ```bash
 npm install
 ```
 
-3. Konfigurasi Environment Buat file .env di root folder proyek dan isi dengan konfigurasi berikut:
+3. **Konfigurasi Environment**
+
+- Buat file .env di root folder proyek dan isi dengan konfigurasi berikut:
 
 ```bash
 APP_PORT=8080
@@ -39,7 +41,9 @@ PASSWORD=your_password
 DATABASE=notes_db
 ```
 
-4. Setup Database Jalankan SQL berikut di MySQL untuk membuat database dan tabel:
+4. **Setup Database**
+
+- Jalankan SQL berikut di MySQL untuk membuat database dan tabel:
 
 ```bash
 CREATE DATABASE notes_db;
@@ -52,20 +56,21 @@ CREATE TABLE notes (
 );
 ```
 
-5. Jalankan Server Gunakan salah satu perintah berikut:
-6. Jalankan Server Gunakan salah satu perintah berikut:
+5. **Jalankan Server**
 
-   - Mode Development (menggunakan `nodemon`):
+- Gunakan salah satu perintah berikut:
 
-   ```bash
-   npm run dev
-   ```
+  - Mode Development (menggunakan `nodemon`):
 
-   - Mode Production:
+  ```bash
+  npm run dev
+  ```
 
-   ```bash
-   npm start
-   ```
+  - Mode Production:
+
+  ```bash
+  npm start
+  ```
 
 Server akan berjalan di `http://localhost:8080/`.
 
